@@ -12,7 +12,10 @@ async function copyStringToClipboard(text) {
 const selectedLanguage = document.querySelector(
   "#language_chosen a span"
 ).textContent;
-if (selectedLanguage === "node.js") {
+const isTextareaEmpty =
+  document.querySelector(".CodeMirror-code div pre span span").textContent ==
+  "\u200B";
+if (selectedLanguage === "node.js" && isTextareaEmpty) {
   const userConfirm = confirm(
     "Node.js 백준 fs 코드 복사 하기\n const input = require('fs').readFileSync(0).toString().trim()"
   );
